@@ -1,0 +1,14 @@
+nums = [3, 7, 1, 9, 5]
+
+largest = float()
+second_largest = float()
+
+for number in nums:
+    if number > largest :
+        second_largest=largest
+        largest = number
+    elif number != largest and number > second_largest:
+        second_largest =number
+
+print("Largest:", largest)
+print("Second Largest:", second_largest)

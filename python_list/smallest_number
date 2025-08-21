@@ -1,0 +1,9 @@
+nums = [1,5,7,8,9,10,100,120,240,250]
+
+smallest = nums[0]
+
+for number in nums:
+    if number < smallest:
+        smallest=number
+
+print(f"The Smallest Number from the list is :", smallest)
