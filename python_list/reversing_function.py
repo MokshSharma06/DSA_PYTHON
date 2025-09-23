@@ -6,7 +6,7 @@ def reverse(arr, start, end):
 
 
 arr = [1, 2, 3, 4, 5]
-reverse(arr,0,3)
+reverse(arr,0,4)
 print(arr)
 
 #   while start < end → keep swapping until middle.
