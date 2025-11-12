@@ -1,0 +1,54 @@
+class Solution:
+    def sortedSquares(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        n = len(nums)
+        neg = []
+        pos = []
+
+        # separating neg and positive numbers
+        for num in nums:
+            if num < 0:
+                neg.append(num)
+            else:
+                pos.append(num)
+
+        # case 1 (no negative numbers)
+        if len(neg) == 0:
+            return [x * x for x in pos]
+
+        # case 2 (no positive numbers)
+        if len(pos) == 0:
+            res = [x * x for x in neg]
+            res.reverse()
+            return res
+
+        # case 3 (both exist)
+        neg = [x * x for x in neg][::-1]
+        pos = [x * x for x in pos]
+        n = len(neg)
+        m = len(pos)
+        res = []
+
+        # two pointer now
+        i = 0
+        j = 0
+        while i < n and j < m:
+            if neg[i] <= pos[j]:
+                res.append(neg[i])
+                i += 1
+            else:
+                res.append(pos[j])
+                j += 1
+
+        while i < n:
+            res.append(neg[i])
+            i += 1
+
+        while j < m:
+            res.append(pos[j])
+            j += 1
+
+        return res
